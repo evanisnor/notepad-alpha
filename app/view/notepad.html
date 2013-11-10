@@ -1,0 +1,20 @@
+
+<div id="header">
+	<input type="button" id="menu" value="=" />
+	<h1>Notepad</h1>
+</div>
+
+<div id="sidebar" class="{{sidebarState}}">
+	<input type="button" id="newNote" value="New Note" />
+
+	{{compose list}}
+	
+	<!-- <div id="version">{{version}}</div> -->
+</div>
+
+<div id="titleEditor" contenteditable="true">
+	{{selectedNote.title}}
+</div>
+<div id="editor" contenteditable="true">
+	{{selectedNote.content}}
+</div>
