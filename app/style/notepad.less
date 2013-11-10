@@ -1,0 +1,148 @@
+@import 'palette.less';
+
+@headerheight: 46px;
+
+*, *:before, *:after {
+	/* apply a natural box layout model to all elements */
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+	height: 100%;
+
+    font-family: Arial;
+	background-color: @bodybg;
+}
+
+.all-transition(@value: all 0.4s) {
+    -webkit-transition: @value;
+    -moz-transition:    @value;
+    -ms-transition:     @value;
+    -o-transition:      @value;
+    transition:         @value;
+}
+
+
+#notepad {
+	position: absolute;
+	top: 0; bottom: 0; left: 0; right: 0;
+	
+	#header {
+		padding: 10px;
+		height: @headerheight;
+		text-align:  center;
+
+		background-color: @headerbg;
+
+		input#menu {
+			position: absolute;
+			left: 14px;
+			border: 0;
+			margin-top: 4px;
+			cursor: pointer;
+
+			color: @menubuttontext;
+			background-color: @menubuttonbg;
+			border: 1px solid @headertext;
+		}
+
+		h1 {
+			display: inline;
+			font-size: 16pt;
+
+			color: @headertext;
+		}
+	}
+
+	#sidebar {
+		&.hidden {
+			bottom: 100%;
+		}
+
+		position: absolute;
+		top: @headerheight; bottom: 0%; left: 0; right: 0;
+		overflow: auto;
+		z-index: 2;
+		text-align: center;
+
+		background-color: @sidemenubg;
+		border-bottom: 2px solid @headertext;
+		.all-transition();
+
+		#newNote {
+			margin-left: 10px;
+			margin-right: 10px;
+			margin-top: 10px;
+			padding: 10px;
+			font-size: 12pt;
+			cursor: pointer;
+			border: 1px solid @headertext;
+		}
+
+		ul#notes {
+			margin: 0;
+			padding: 0;
+
+			li {
+				list-style: none;
+
+				.note {
+					margin: 10px;
+					padding: 10px;
+					text-align: left;
+					cursor: pointer;
+					background-color: @editorbg;
+					border: 1px solid @editorborder;
+
+					&:active {
+						background-color: @headerbg;
+					}
+
+					.title {
+						font-weight: 700;
+					}
+
+					.lastModifiedOn {
+						font-size: 8pt;
+					}
+				}
+			}
+		}
+	}
+
+	#titleEditor {
+		position: absolute;
+		top: @headerheight; left: 0; right: 0;
+
+		max-height: 41px;
+		padding: 10px;
+		margin: 10px;
+		border: 1px solid @editorborder;
+		outline: none;
+		background-color: @editorbg;
+	}
+
+	#editor {
+		position: absolute;
+		top: (@headerheight + 50px); bottom: 0; left: 0; right: 0;
+		overflow: auto;
+		outline: none;
+
+		padding: 10px;
+		margin: 10px;
+		border: 1px solid @editorborder;
+		background-color: @editorbg;
+	}
+
+	#version {
+		width: 100%;
+		text-align: center;
+		margin-bottom: 10px;
+		font-size: 8pt;
+	}
+}
