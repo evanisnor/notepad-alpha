@@ -3,7 +3,7 @@ notepad-alpha
 
 A non-persistent, single-page, mobile-friendly notepad application. RequireJS, Handlebars, jQuery, LESS.
 
-[View the demo!](http://leadhead9.github.io/notepad-alpha/)
+[View the demo!](http://evanisnor.github.io/notepad-alpha/)
 
 Reflection
 -------------
